@@ -23,8 +23,8 @@ function App() {
           <div className="information-text">Insight provided on college-specific trends based on the latest information from the U.S. Department of Education.</div>
         </div>
         <div className="information c2">
+          <div className="information-icon"> <Icon icon={magic} size={90}/> </div>
           <div className="information-text">Realistic, reasonable, and personalized matching for you and your college wants and needs. It's almost like magic.</div>
-          <div className="information-icon right"> <Icon icon={magic} size={90}/> </div>
         </div>
         <div className="information c3">
           <div className="information-icon"> <Icon icon={code} size={100}/> </div>

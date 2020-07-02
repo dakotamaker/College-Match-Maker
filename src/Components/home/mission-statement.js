@@ -12,7 +12,7 @@ function MissionStatement() {
         <div className="mission-statment">
             <div className="mission-statement-text">
                 The Personalized College Match Maker aims to help you find a college that fits 
-                you and your preferences and performance, to make your college search process easier.
+                your preferences and academic performance to make your college search process easier.
             </div>
             <div className="mission-button-wrapper">
                 <button className="mission-button">
