@@ -1,0 +1,65 @@
+.mission-statement-wrapper {
+    display: flex;
+    height: 100%
+}
+
+.big-logo {
+    height: 100%;
+    pointer-events: none;
+}
+
+.logo-wrapper {
+    width: 45%;
+    margin-left: 4%
+}
+
+.mission-statment {
+    width: 55%;
+    margin: 0 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.7em;
+}
+
+.mission-button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border:0.1em solid gray;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+    transition: all 0.2s;
+    width: 45%;
+    border-radius: 6px;
+    font-size: 0.7em;
+}
+
+.mission-statement-text {
+    text-align: center;
+    color: black;
+}
+
+.mission-button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4%;
+}
+
+.mission-button:hover {
+    color: #000000;
+    background-color: gray;
+}
+
+@media all {
+    .mission-button {
+        display: block;
+        margin: 0.4em auto;
+    }
+}
