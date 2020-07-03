@@ -1,67 +1,8 @@
-.App {
-  text-align: left;
-}
-
-.content-wrapper {
-  height: calc(100vh - 60px);
-}
-
-.statement {
-  height: 70%;
-}
-
-.information {
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 15%;
-  color: #F0EBD8;
-}
-
-.information-text {
-  width: 65%;
-  font-size: 1.2em;
-}
-
-.information-icon {
-  width: 12%;
-}
-
-.c1 {
-  background-color: #1D2D44;
-}
-
-.c2 {
-  background-color: #3E5C76;
-}
-
-.c3 {
-  background-color: #748CAB ;
-}
-
-.site-info-container {
-  padding: 5px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #373737;
-  color: white
-}
-
-.site-link-container {
-  margin: 10px;
-  width: 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-link-container > a {
-  color: white;
-  cursor: pointer;
-}
-
-.site-link-icons {
-  color: white;
+.construction {
+    height: calc(100vh - 60px - 75px);
+    background-color: #E6EDEF;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

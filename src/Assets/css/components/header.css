@@ -15,12 +15,19 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
+
+.header-title:hover {
+   color: #748CAB;
+}
+
 
 .page-link {
     position: relative;
     text-decoration: none;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,12 +36,16 @@
     cursor: pointer;
 }
 
+.unselcted-link {
+    color: white;
+}
+
+.selected-link {
+    color: #748CAB
+}
+
 .empty-space {
     margin-right: 4%
-}
-  
-.page-link:hover {
-    color: white;
 }
 
 .page-link::before {
@@ -44,7 +55,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #89BE9C;
+    background-color: #748CAB;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;

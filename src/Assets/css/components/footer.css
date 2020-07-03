@@ -1,0 +1,29 @@
+.site-info-container {
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0D1321;
+    color: white;
+    height: 70px;
+}
+
+.site-link-container {
+    margin: 10px;
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-link-container > a {
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.site-link-container > a:hover {
+    color: #748CAB;
+    cursor: pointer;
+}
