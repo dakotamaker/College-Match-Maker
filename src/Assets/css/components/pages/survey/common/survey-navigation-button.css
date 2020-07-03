@@ -1,0 +1,27 @@
+.navigation-button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    text-align: center;
+    transition: all 0.3s;
+    width: 10%;
+    border-radius: 6px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #8096B3;
+    border:0.1em solid #1D2D44;
+    color: #0D1321;
+}
+
+.secondary {
+    background-color: gray;
+    border:0.1em solid black;
+    color: white
+}

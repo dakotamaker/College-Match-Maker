@@ -1,0 +1,48 @@
+.survey-status-area {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.progress-line {
+    display: flex;
+    margin: 0 25%;
+    justify-content: space-around;
+}
+
+.circle-container {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.circle {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0D1321;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.to-be-done {
+    border: 3px solid gray;
+}
+
+.in-progress {
+    border: 3px solid #748CAB;
+}
+
+.done {
+    background-color: #748CAB;
+    border: 3px solid #748CAB;
+}
+
+.circle-title {
+    width: 60%;
+    font-size: 20px;
+}

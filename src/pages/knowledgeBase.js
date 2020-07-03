@@ -1,11 +1,18 @@
 import React from 'react';
+import { Result } from 'antd';
+import { Link } from 'react-router-dom';
 
 class KnowledgeBase extends React.Component {
     render() {
         return (
             <span>
                 <h1 className="construction">
-                    Page under construction.
+                <Result
+                    status="403"
+                    title="Under Construction"
+                    subTitle="Sorry, this page isn't available just yet."
+                    extra={<Link to="/">Back Home</Link>}
+                />
                 </h1>
             </span>
         );

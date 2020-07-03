@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Routes from '../Routes';
 import PersonalSurvey from '../Components/pages/survey/personalSurvey'
-import SchoolSurvey from '../Components/pages/survey/personalSurvey'
+import SchoolSurvey from '../Components/pages/survey/schoolSurvey'
 import SurveySummary from '../Components/pages/survey/surveySummary';
 import BestFitList from '../Components/pages/survey/bestFitList';
 
