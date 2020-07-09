@@ -36,6 +36,10 @@
     cursor: pointer;
 }
 
+.page-link:hover {
+    color: white;
+}
+
 .unselcted-link {
     color: white;
 }

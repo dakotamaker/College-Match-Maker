@@ -25,10 +25,10 @@ class DropDownMenu extends React.Component {
         <Form.Item label={this.props.menuLabel} name={this.props.menuName}>
             <Dropdown overlay={menu}>
             <Button>
-                Button <DownOutlined />
+                Select one <DownOutlined />
             </Button>
             </Dropdown>
-            {this.props.weighted ? <WeightedScale inputTitle={this.props.weightedTitle || this.props.groupLabel} inputName={this.props.groupName}/> : <div/>}
+            {this.props.weighted ? <WeightedScale inputTitle={this.props.weightedTitle} inputName={this.props.groupName}/> : <div/>}
         </Form.Item>
         );
     }

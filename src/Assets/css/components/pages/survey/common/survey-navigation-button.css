@@ -12,16 +12,18 @@
     border-radius: 6px;
     font-size: 1.3em;
     cursor: pointer;
-}
-
-.primary {
-    background-color: #8096B3;
     border:0.1em solid #1D2D44;
     color: #0D1321;
 }
 
+.navigation-button:hover {
+    color: #E6EDEF ;
+}
+
+.primary {
+    background-color: #8096B3;
+}
+
 .secondary {
-    background-color: gray;
-    border:0.1em solid black;
-    color: white
+    background-color: #C0CAD8;
 }

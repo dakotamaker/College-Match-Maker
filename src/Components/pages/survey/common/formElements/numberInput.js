@@ -7,7 +7,7 @@ class NumberInput extends React.Component {
         return (
             <Form.Item label={this.props.label} name={this.props.name}>
                 <InputNumber min={this.props.min} max={this.props.max}/>
-                {this.props.weighted ? <WeightedScale inputTitle={this.props.weightedTitle || this.props.groupLabel} inputName={this.props.groupName}/> : <div/>}
+                {this.props.weighted ? <WeightedScale inputTitle={this.props.weightedTitle} inputName={this.props.groupName}/> : <div/>}
             </Form.Item>
         );
     }

@@ -30,7 +30,6 @@
 
 .mission-button {
     background-color: #8096B3;
-    display: inline-block;
     padding: 0.35em 1.2em;
     border:0.1em solid #1D2D44;
     margin: 0 0.3em 0.3em 0;
@@ -67,7 +66,8 @@
 
 @media all {
     .mission-button {
-        display: block;
-        margin: 0.4em auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

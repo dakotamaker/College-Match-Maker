@@ -9,7 +9,6 @@ class RadioGroup extends React.Component {
     };
 
     onChange = e => {
-        console.log('radio checked', e.target.value);
         this.setState({
           value: e.target.value,
         });
@@ -33,7 +32,7 @@ class RadioGroup extends React.Component {
                 <Radio.Group onChange={this.onChange} value={value}>
                     {radioButtons}
                 </Radio.Group>
-                {this.props.weighted ? <WeightedScale inputTitle={this.weightedTitle || this.props.groupLabel} inputName={this.props.groupName}/> : <div/>}
+                {this.props.weighted ? <WeightedScale inputTitle={this.weightedTitle} inputName={this.props.groupName}/> : <div/>}
         </Form.Item>
         );
     }
