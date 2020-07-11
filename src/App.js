@@ -9,11 +9,11 @@ import KnowledgeBase from './pages/knowledgeBase'
 import './Assets/css/App.css'
 
 function App() {
-  if(JSON.parse(localStorage.getItem('surveyResults')) === {}) {
+  if(JSON.parse(localStorage.getItem('surveyResults')) === null) {
     localStorage.setItem('surveyResults', JSON.stringify({}));
   }
 
-  if(JSON.parse(localStorage.getItem('surveyWeights')) === {}) {
+  if(JSON.parse(localStorage.getItem('surveyWeights')) === null) {
     localStorage.setItem('surveyWeights', JSON.stringify({}));
   }
 
