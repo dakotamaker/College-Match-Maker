@@ -2,7 +2,7 @@ import _ from 'lodash';
 import * as personalSurvey from './personalSurveyValues';
 import * as schoolSurvey from './schoolSurveyValues';
 
-const singleStringSurveyValues = Object.assign(
+const singleStringSurveyValues = Object.assign({},
     personalSurvey.races,
     personalSurvey.genders,
     personalSurvey.familyIncome,
@@ -116,7 +116,7 @@ export function getValues() {
     let storedResults = JSON.parse(localStorage.getItem('surveyResults')); 
     let storedWeights = JSON.parse(localStorage.getItem('surveyWeights'));
 
-    let combinedStoredValues = Object.assign(storedResults, storedWeights)
+    let combinedStoredValues = Object.assign({}, storedResults, storedWeights)
 
     let rawPersonalData = _.pick(combinedStoredValues, personalKeys)
     let rawSchoolData = _.pick(combinedStoredValues, schoolKeys)

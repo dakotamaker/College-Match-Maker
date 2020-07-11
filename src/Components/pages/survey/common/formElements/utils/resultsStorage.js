@@ -7,5 +7,5 @@ export function storeFormValue(valueKey, value, weightFlag) {
         [valueKey]: value
     };
 
-    localStorage.setItem(localStorageKey, JSON.stringify(Object.assign(valueStored, valueToSet)));
+    localStorage.setItem(localStorageKey, JSON.stringify(Object.assign({}, valueStored, valueToSet)));
 }
