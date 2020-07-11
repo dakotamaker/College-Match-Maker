@@ -34,7 +34,7 @@ class PersonalSurvey extends React.Component {
                         
                         <FormDivider text="Test Scores"/>
                         <NumberInput label="ACT Composite Score" name="act-comp" min={1} max={36}/>
-                        <NumberInput label="ACT Math Score" name="act-mat" min={1} max={36}/>
+                        <NumberInput label="ACT Math Score" name="act-math" min={1} max={36}/>
                         <NumberInput label="ACT English Score" name="act-english" min={1} max={36}/>
                         <NumberInput label="ACT Writing Score" name="act-writing" min={2} max={12}/>
                         <NumberInput label="SAT Overall Score" name="sat-total" min={400} max={1600}/>

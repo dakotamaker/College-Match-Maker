@@ -1,12 +1,12 @@
 const religiousAffliation = {
-    'Yes': 1,
-    'No': 0
+    'Yes': 'yes',
+    'No': 'no'
 }
 
 const divisions = {
-    'DI': 1,
-    'DII': 2,
-    'DIII': 3
+    'DI': 'd1',
+    'DII': 'd2',
+    'DIII': 'd3'
 }
 
 const costs = {
@@ -22,8 +22,8 @@ const costs = {
 }
 
 const publicSchool = {
-    'Public': 1,
-    'Private': 0
+    'Public': 'public',
+    'Private': 'private'
 }
 
 const selectivities = {

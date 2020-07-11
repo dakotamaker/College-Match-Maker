@@ -37,7 +37,7 @@ class SchoolSurvey extends React.Component {
                 </div>
                 <div className="navigation-botton-wrapper">
                     <SurveyNavigationButton to="/survey/personal" buttonText="Back"/>
-                    <SurveyNavigationButton to="/survey/results" buttonText="Next" primary={true}/>
+                    <SurveyNavigationButton to="/survey/summary" buttonText="Next" primary={true}/>
                 </div>
             </span>
         );

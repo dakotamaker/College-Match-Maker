@@ -1,19 +1,62 @@
 import React from 'react';
-import { Result } from 'antd';
-import { Link } from 'react-router-dom';
+import SurveyTitle from './common/title'
+import FormDivider from './common/formElements/divider'
+import SurveyNavigationButton from './common/surveyNavigationButton'
+import { Form, List } from "antd";
+import * as summaryValues from './utils/summaryValues'
 
 class SurveySummary extends React.Component {
+    constructor(props) {
+        super(props);
+
+        let summarizedValues = summaryValues.getValues()
+
+        this.state = {
+            personalData: summarizedValues.personalData,
+            schoolData: summarizedValues.schoolData
+        }
+    }
+
     render() {
+        const layout = {
+            labelCol: { span: 8 },
+            wrapperCol: { span: 16 },
+        };
+
         return (
             <span>
-                <h1 className="construction">
-                <Result
-                    status="403"
-                    title="Under Construction"
-                    subTitle="Sorry, this page isn't available just yet."
-                    extra={<Link to="/">Back Home</Link>}
-                />
-                </h1>
+                <SurveyTitle/>
+                <div className="form-wrapper">
+                    <Form {...layout} name="summary">
+                        <FormDivider text="Personal Information Summary"/>
+                        <List itemLayout="horizontal" dataSource={this.state.personalData}
+                            renderItem={item => (
+                                <List.Item>
+                                    <List.Item.Meta
+                                    title={item.title}
+                                    description={item.value}
+                                    />
+                                </List.Item>
+                            )}
+                        />
+
+                        <FormDivider text="School Preferences Summary"/>
+                        <List itemLayout="horizontal" dataSource={this.state.schoolData}
+                            renderItem={item => (
+                                <List.Item>
+                                    <List.Item.Meta
+                                    title={item.title}
+                                    description={item.value}
+                                    />
+                                </List.Item>
+                            )}
+                        />
+                    </Form>
+                </div>
+                <div className="navigation-botton-wrapper">
+                    <SurveyNavigationButton to="/survey/school" buttonText="Back"/>
+                    <SurveyNavigationButton to="/survey/results" buttonText="Submit" primary={true}/>
+                </div>
             </span>
         );
     }
