@@ -1,4 +1,4 @@
-const storeFormValue = function(valueKey, value, weightFlag) {
+export function storeFormValue(valueKey, value, weightFlag) {
     let localStorageKey = weightFlag ? 'surveyWeights' : 'surveyResults'
 
     let valueStored = JSON.parse(localStorage.getItem(localStorageKey))
@@ -9,5 +9,3 @@ const storeFormValue = function(valueKey, value, weightFlag) {
 
     localStorage.setItem(localStorageKey, JSON.stringify(Object.assign(valueStored, valueToSet)));
 }
-
-module.exports = { storeFormValue }
