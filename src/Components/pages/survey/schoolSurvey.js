@@ -28,7 +28,7 @@ class SchoolSurvey extends React.Component {
                         
                         <FormDivider text="Monetary"/>
                         <RadioGroup groupLabel="Cost Per Year" groupName="cost-per-year" radioButtonMap={schoolSurveyValues.costs} weighted={true}/>
-                        <RadioGroup groupLabel="Salary (4 years after graduation)" groupName="student-size" radioButtonMap={schoolSurveyValues.salaries} weighted={true}/>
+                        <RadioGroup groupLabel="Salary (4 years after graduation)" groupName="salary" radioButtonMap={schoolSurveyValues.salaries} weighted={true}/>
 
                         <FormDivider text="School Characteristics"/>
                         <RadioGroup groupLabel="Religious Affiliation" groupName="religious-affiliation" radioButtonMap={schoolSurveyValues.religiousAffliation} weighted={true}/>

@@ -17,15 +17,15 @@ class PersonalSurvey extends React.Component {
             labelCol: { span: 8 },
             wrapperCol: { span: 16 },
         };
-        
+
         return (
             <span>
                 <SurveyTitle/>
                 <div className="form-wrapper">
                     <Form {...layout} name="personal-info">
                         <FormDivider text="School Subjects"/>
-                        <CheckBoxes groupLabel="Subjects That Interest You" groupName="Favorite Subjects" options={personalSurveyValues.subjects}/>
-                        <CheckBoxes groupLabel="Intended Major(s) (Max 3)" groupName="int-major" options={personalSurveyValues.intendedMajors} limitChoices={3}/>
+                        <CheckBoxes groupLabel="Subjects That Interest You" groupName="fav-subjs" options={personalSurveyValues.subjects}/>
+                        <CheckBoxes groupLabel="Intended Major(s)" groupName="int-major" options={personalSurveyValues.intendedMajors} limitChoices={3}/>
                         
                         <FormDivider text="Personal Information"/>
                         <RadioGroup groupLabel="Family Income" groupName="fam-income" radioButtonMap={personalSurveyValues.familyIncome}/>

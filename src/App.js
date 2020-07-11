@@ -9,6 +9,14 @@ import KnowledgeBase from './pages/knowledgeBase'
 import './Assets/css/App.css'
 
 function App() {
+  if(JSON.parse(localStorage.getItem('surveyResults')) === {}) {
+    localStorage.setItem('surveyResults', JSON.stringify({}));
+  }
+
+  if(JSON.parse(localStorage.getItem('surveyWeights')) === {}) {
+    localStorage.setItem('surveyWeights', JSON.stringify({}));
+  }
+
   return (
     <Router>
       <Header/>
