@@ -24,11 +24,10 @@ class SchoolSurvey extends React.Component {
                         <RadioGroup groupLabel="School's Division" groupName="division" radioButtonMap={schoolSurveyValues.divisions} weighted={true}/>
                         <RadioGroup groupLabel="Public or Private" groupName="public-or-private" radioButtonMap={schoolSurveyValues.publicSchool} weighted={true}/>
                         <RadioGroup groupLabel="Selectivity Percentage" groupName="selectivity" radioButtonMap={schoolSurveyValues.selectivities} weighted={true}/>
-                        <RadioGroup groupLabel="Graduation Rate" groupName="grad-rate" radioButtonMap={schoolSurveyValues.graduationRates} weighted={true}/>
                         
                         <FormDivider text="Monetary"/>
                         <RadioGroup groupLabel="Cost Per Year" groupName="cost-per-year" radioButtonMap={schoolSurveyValues.costs} weighted={true}/>
-                        <RadioGroup groupLabel="Salary (4 years after graduation)" groupName="salary" radioButtonMap={schoolSurveyValues.salaries} weighted={true}/>
+                        <RadioGroup groupLabel="Desired Salary (4 years after graduation)" groupName="salary" radioButtonMap={schoolSurveyValues.salaries} weighted={true}/>
 
                         <FormDivider text="School Characteristics"/>
                         <RadioGroup groupLabel="Religious Affiliation" groupName="religious-affiliation" radioButtonMap={schoolSurveyValues.religiousAffliation} weighted={true}/>

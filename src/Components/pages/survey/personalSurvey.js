@@ -29,8 +29,8 @@ class PersonalSurvey extends React.Component {
                         
                         <FormDivider text="Personal Information"/>
                         <RadioGroup groupLabel="Family Income" groupName="fam-income" radioButtonMap={personalSurveyValues.familyIncome}/>
-                        <DropDownMenu menuLabel="Gender" menuName="gender" menuMap={personalSurveyValues.genders} weighted={true} weightedTitle="Gender Diversity"/>
-                        <DropDownMenu menuLabel="Race" menuName="race" menuMap={personalSurveyValues.races} weighted={true} weightedTitle="Racial Diversity"/>
+                        <DropDownMenu menuLabel="Gender" menuName="gender" menuMap={personalSurveyValues.genders}/>
+                        <DropDownMenu menuLabel="Ethnicity" menuName="ethnicity" menuMap={personalSurveyValues.ethnicities} weighted={true} weightedTitle="Ethnic Diversity"/>
                         
                         <FormDivider text="Test Scores"/>
                         <NumberInput label="ACT Composite Score" name="act-comp" min={1} max={36}/>

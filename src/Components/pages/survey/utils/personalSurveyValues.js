@@ -8,7 +8,7 @@ const intendedMajors = alphebetizeList([
     { label: 'Mathematics', value: 'mathematics' },
     { label: 'Education', value: 'education' },
     { label: 'Business Marketing', value: 'business_marketing' },
-    { label: 'Communication Technology', value: 'communication_technology' },
+    { label: 'Communication Technology', value: 'communications_technology' },
     { label: 'Foreign Languages', value: 'language' },
     { label: 'Performing Arts', value: 'visual_performing' },
     { label: 'Parks and Recreational Fitness', value: 'parks_recreation_fitness' },
@@ -47,12 +47,12 @@ const familyIncome = {
 }
 
 const genders = {
-    'Male': 'male',
-    'Female': 'female',
+    'Male': 'men',
+    'Female': 'women',
     'N/A': null
 }
 
-const races = {
+const ethnicities = {
     'Black': 'black',
     'Hispanic': 'hispanic',
     'Asian': 'asian',
@@ -65,8 +65,8 @@ const races = {
 
 const subjects = alphebetizeList([
     { label: 'Teaching', value: 'teaching' },
-    { label: 'Calculus', value: 'calculus' },
-    { label: 'Statistics', value: 'statistics' },
+    { label: 'Math', value: 'math' },
+    { label: 'Engineering', value: 'engineering' },
     { label: 'Literature', value: 'literature' },
     { label: 'Speech', value: 'speech' },
     { label: 'History', value: 'history' },
@@ -79,7 +79,7 @@ const subjects = alphebetizeList([
     { label: 'Health/Medical', value: 'health' },
     { label: 'Theatre', value: 'theatre' },
     { label: 'Agriculture', value: 'agriculture' },
-    { label: 'Information Technology', value: 'info_tech' }, 
+    { label: 'Computer Science', value: 'computer_science' }, 
     { label: 'U.S. Government', value: 'legal' }, 
     { label: 'Psychology', value: 'psychology' }, 
     { label: 'Workshop', value: 'workshop' }, 
@@ -90,41 +90,10 @@ const subjects = alphebetizeList([
     { label: 'Sociology', value: 'sociology' }, 
 ], 'label');
 
-// TODO: Move this later
-// const subjectToMajorMapping = {
-//     'teaching': ['eduction'],
-
-// }
-//     { label: 'Teaching', value: ['eduction'] },
-//     { label: 'Calculus', value: ['mathematics', 'engineering', 'physical_science'] },
-//     { label: 'Statistics', value: ['mathematics', 'engineering', 'physical_science', 'business_marketing'] },
-//     { label: 'Literature', value: ['communication_technology', 'library', 'language', 'english', 'communication'] },
-//     { label: 'Speech', value: ['communication_technology', 'library', 'language', 'english', 'communication', 'family_consumer_science', 'public_administration_social_services'] },
-//     { label: 'History', value: ['humanities', 'history'] },
-//     { label: 'Accounting/Economics', value: ['business_marketing', 'mathematics'] },
-//     { label: 'Foreign Language(s)', value: ['communication_technology', 'communication', 'language'] },
-//     { label: 'Biology', value: ['health', 'biological', 'mathematics', 'physical_science'] },
-//     { label: 'Chemistry', value: ['health', 'physical_science'] },
-//     { label: 'Physics', value: ['health', 'mathematics', 'physical_science'] },
-//     { label: 'Enviornmental Science', value: ['physical_science', 'resources', 'biological'] },
-//     { label: 'Health/Medical', value: ['health', 'communication', 'biological', 'physical_science', 'psychology', 'social_science'] },
-//     { label: 'Theatre', value: ['visual_performing'] },
-//     { label: 'Agriculture', value: 'agriculture' },
-//     { label: 'Information Technology', value: ['computer', 'engineering'] }, 
-//     { label: 'U.S. Government', value: ['legal', 'security_law_enforcement'] }, 
-//     { label: 'Psychology', value: ['psychology', 'social_science', 'humanities', 'family_consumer_science'] }, 
-//     { label: 'Workshop', value: ['mechanical_repair_tech', 'construction'] }, 
-//     { label: 'Woodshop', value: ['construction'] }, 
-//     { label: 'Gym', value: ['parks_recreation_fitness'] }, 
-//     { label: 'Cooking', value: ['personal_culinary'] }, 
-//     { label: 'Theology', value: ['philosophy_religious', 'ethnic_culture_gender'] }, 
-//     { label: 'Sociology', value: ['ethnic_culture_gender', 'social_science'] }, 
-// ];
-
 module.exports = {
     intendedMajors,
     familyIncome,
     genders,
-    races,
+    ethnicities,
     subjects
 }

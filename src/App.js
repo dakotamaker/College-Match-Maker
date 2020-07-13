@@ -8,24 +8,30 @@ import Survey from './pages/survey'
 import KnowledgeBase from './pages/knowledgeBase'
 import './Assets/css/App.css'
 
-function App() {
-  if(JSON.parse(localStorage.getItem('surveyResults')) === null) {
-    localStorage.setItem('surveyResults', JSON.stringify({}));
+class App extends React.Component {
+  constructor(props) { 
+    super(props);
+
+    if(JSON.parse(localStorage.getItem('surveyResults')) === null) {
+      localStorage.setItem('surveyResults', JSON.stringify({}));
+    }
+  
+    if(JSON.parse(localStorage.getItem('surveyWeights')) === null) {
+      localStorage.setItem('surveyWeights', JSON.stringify({}));
+    }
   }
 
-  if(JSON.parse(localStorage.getItem('surveyWeights')) === null) {
-    localStorage.setItem('surveyWeights', JSON.stringify({}));
-  }
-
-  return (
-    <Router>
-      <Header/>
-      <Route exact path={Routes.HOME_PAGE} component={Home}/>
-      <Route path="/survey" component={Survey}/>
-      <Route path="/knowledgeBase" component={KnowledgeBase}/>
-      <Footer/>
-    </Router>
-  );
+  render() {
+      return (
+        <Router>
+          <Header/>
+          <Route exact path={Routes.HOME_PAGE} component={Home}/>
+          <Route path="/survey" component={Survey}/>
+          <Route path="/knowledgeBase" component={KnowledgeBase}/>
+          <Footer/>
+        </Router>
+      );
+    }
 }
 
 export default App;
