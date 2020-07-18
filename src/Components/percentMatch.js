@@ -176,15 +176,17 @@ const constructDiversityComparisonQueryStatements = function(diversityValues, qu
 }
 
 const constructMajorQueryStatements = function(majorValues, queryBuilder) {
-    let flatSubjectMajorEquivalents = majorValues['fav-subjs'].map(x=> subjectToMajorMapping[x]).flat();
-    let majorList = [...new Set(flatSubjectMajorEquivalents.concat(majorValues['int-major']))];
-
-    majorList.forEach(major => {
-        queryBuilder.conditions.push(`SUM(IF(${major}_offered, 1, 0)) as ${major}_offered_match`);
-        queryBuilder.conditions.push(`SUM(IF(${major}_percentage > 0.2, 1, 0)) as ${major}_popular_match`);
-        queryBuilder.aliases.push(`${major}_offered_match`, `${major}_popular_match`)
-        queryBuilder.totalPossiblePoints += 1
-    })
+    if(majorValues.length) {
+        let flatSubjectMajorEquivalents = majorValues['fav-subjs'].map(x=> subjectToMajorMapping[x]).flat();
+        let majorList = [...new Set(flatSubjectMajorEquivalents.concat(majorValues['int-major']))];
+    
+        majorList.forEach(major => {
+            queryBuilder.conditions.push(`SUM(IF(${major}_offered, 1, 0)) as ${major}_offered_match`);
+            queryBuilder.conditions.push(`SUM(IF(${major}_percentage > 0.2, 1, 0)) as ${major}_popular_match`);
+            queryBuilder.aliases.push(`${major}_offered_match`, `${major}_popular_match`)
+            queryBuilder.totalPossiblePoints += 1
+        })
+    }
 }
 
 export function constructBestFitQuery(collegeId) {
@@ -218,7 +220,7 @@ export function constructBestFitQuery(collegeId) {
                     state,
                     longitude,
                     latitude,
-                    ROUND((${queryBuilder.aliases.join(' + ')}) / ${queryBuilder.totalPossiblePoints}, 3) * 100 as match_points 
+                    ROUND((${queryBuilder.aliases.length ? queryBuilder.aliases.join(' + ') : '1'}) / ${queryBuilder.totalPossiblePoints > 0 ? queryBuilder.totalPossiblePoints : 1}, 3) * 100 as match_points 
                 FROM (
                     SELECT
                         college_id,
@@ -229,7 +231,7 @@ export function constructBestFitQuery(collegeId) {
                         state,
                         longitude,
                         latitude,
-                        ${queryBuilder.conditions.join(',\n')}
+                        ${queryBuilder.conditions.length ? queryBuilder.conditions.join(',\n') : '1 as foo'}
                     FROM college_scorecard_data 
                     ${collegeId ? 'WHERE college_id=' + collegeId : ''}
                     group by college_id) as T

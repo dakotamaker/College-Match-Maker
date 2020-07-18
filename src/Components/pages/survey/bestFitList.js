@@ -19,7 +19,7 @@ class BestFitList extends React.Component {
     }
 
     async componentDidMount() {
-        let queryDetails = constructBestFitQuery()
+        let queryDetails = constructBestFitQuery()        
         let bestFits = await fetch.query(queryDetails.query, queryDetails.params);
 
         this.setState({
@@ -76,7 +76,7 @@ class BestFitList extends React.Component {
                     >
                         <Skeleton title={false} loading={item.loading} active>
                             <List.Item.Meta
-                                title={<a href={item.school_url.startsWith('http') ? item.school_url : `https://${item.school_url}`} target="_blank" rel="noopener noreferrer">{index + 1}. {item.school_name} (<span className={`anti-gradient_${roundToNearest5(Math.round(item.match_points * 100) / 100)}`}>{Math.round(item.match_points * 100) / 100}%</span> Match)</a>}
+                                title={item.school_url ? <a href={item.school_url.startsWith('http') ? item.school_url : `https://${item.school_url}`} target="_blank" rel="noopener noreferrer">{index + 1}. {item.school_name} (<span className={`anti-gradient_${roundToNearest5(Math.round(item.match_points * 100) / 100)}`}>{Math.round(item.match_points * 100) / 100}%</span> Match)</a> : <span>{index + 1}. {item.school_name}(<span className={`anti-gradient_${roundToNearest5(Math.round(item.match_points * 100) / 100)}`}>{Math.round(item.match_points * 100) / 100}%</span> Match)</span>}
                                 description={`Located in: ${item.city}, ${item.state}`}
                             />
                         </Skeleton>

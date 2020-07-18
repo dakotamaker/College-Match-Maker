@@ -17,8 +17,7 @@ export async function query(queryString, queryParams) {
 }
 
 export async function getCollegeDataByID(collegeId) {
-  console.log(process.env.SCORECARD_API_KEY)
-  return await fetch(`https://api.data.gov/ed/collegescorecard/v1/schools.json?id=${collegeId}&api_key=${process.env.SCORECARD_API_KEY}&keys_nested=true`, {
+  return await fetch(`https://api.data.gov/ed/collegescorecard/v1/schools.json?id=${collegeId}&api_key=8Qu8HhJ1DvRNQQrbavH5IhalhyYZH9FDICAlSHz3&keys_nested=true`, {
     method: 'GET'
   }).then(async response => {
     return await response.json();
