@@ -1,0 +1,18 @@
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 14px 0;
+}
+
+.title-text {
+    font-size: 2em;
+    font-weight: 500;
+    color: black
+}
+
+.title-search {
+    position: absolute;
+    right: 4%;
+    width: 20vw;
+}

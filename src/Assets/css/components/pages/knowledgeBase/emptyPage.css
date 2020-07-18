@@ -1,0 +1,7 @@
+.empty-page {
+    /* 100% of view height - Header height - footer height - title height */
+    height: calc(100vh - 60px - 70px - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

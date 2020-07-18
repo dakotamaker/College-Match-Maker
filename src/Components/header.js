@@ -13,7 +13,7 @@ class Header extends React.Component {
       <header className="header">
           <a className="header-title" href="/"><Icon icon={ic_fingerprint} size={40}/> Personalized College Match Maker</a>
           <a className={`page-link ${surveySelected ? "selected-link" : "unselcted-link"}`} href="/survey/personal">Find Your Colleges</a>
-          <a className={`page-link empty-space ${knowledgeBaseSelected ? "selected-link" : "unselcted-link"}`} href="/knowledgeBase">Knowledge Center</a>
+          <a className={`page-link empty-space ${knowledgeBaseSelected ? "selected-link" : "unselcted-link"}`} href="/knowledgeBase">Knowledge Base</a>
       </header>
     );
   }

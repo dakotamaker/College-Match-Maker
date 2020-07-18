@@ -15,3 +15,14 @@ export async function query(queryString, queryParams) {
         throw err;
     });
 }
+
+export async function getCollegeDataByID(collegeId) {
+  return await fetch(`https://api.data.gov/ed/collegescorecard/v1/schools.json?id=${collegeId}&api_key=${process.env.SCORECARD_API_KEY}&keys_nested=true`, {
+    method: 'GET'
+  }).then(async response => {
+    return await response.json();
+  }).catch(err => {
+    console.error(err);
+    throw err;
+  })
+}

@@ -1,5 +1,9 @@
 import _ from 'lodash'
 
+export function roundToNearest5(value) {
+    return (value % 5) < 2.5 ?  parseInt(value / 5) * 5 : parseInt(value / 5) * 5 + 5;
+}
+
 const diversityQueryKeys = [
     {storageKey: 'ethnicity', queryKey: '{value}_student_percentage', queryAlias: 'ethnicity'}
 ]
@@ -183,7 +187,7 @@ const constructMajorQueryStatements = function(majorValues, queryBuilder) {
     })
 }
 
-export function constructBestFitQuery() {
+export function constructBestFitQuery(collegeId) {
     let queryBuilder = {
         conditions: [],
         params: [],
@@ -227,9 +231,10 @@ export function constructBestFitQuery() {
                         latitude,
                         ${queryBuilder.conditions.join(',\n')}
                     FROM college_scorecard_data 
+                    ${collegeId ? 'WHERE college_id=' + collegeId : ''}
                     group by college_id) as T
-                ORDER BY match_points DESC
-                LIMIT 50;
+                ORDER BY match_points DESC, school_name ASC
+                LIMIT ${collegeId ? '1' : '50'};
                 `
 
     return {

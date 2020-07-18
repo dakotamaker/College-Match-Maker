@@ -1,8 +1,9 @@
 import React from 'react';
 import { List, Button, Skeleton } from 'antd';
 import * as fetch from '../../../fetch';
-import { constructBestFitQuery } from './utils/resultsValues';
+import { constructBestFitQuery, roundToNearest5 } from '../../percentMatch';
 import "../../../Assets/css/components/pages/survey/common/best-fit.css"
+import "../../../Assets/css/components/percentMatch.css"
 import { Link } from 'react-router-dom';
 
 class BestFitList extends React.Component {
@@ -54,7 +55,7 @@ class BestFitList extends React.Component {
                 <Button onClick={this.onLoadMore}>See More Matches</Button>
             </div>
             ) : null;
-
+        
         return (
             <>
             <div className="best-fit-wrapper">
@@ -71,11 +72,11 @@ class BestFitList extends React.Component {
                     dataSource={this.state.shownList}
                     renderItem={(item, index) => (
                     <List.Item
-                        actions={[<Link to={`/knowledgebase/${item.college_id}`}> See knowledgebase </Link>]}
+                        actions={[<Link to={`/knowledgeBase/${item.college_id}`}> See knowledgebase </Link>]}
                     >
                         <Skeleton title={false} loading={item.loading} active>
                             <List.Item.Meta
-                                title={<a href={item.school_url.startsWith('http') ? item.school_url : `https://${item.school_url}`} target="_blank" rel="noopener noreferrer">{index + 1}. {item.school_name} ({Math.round(item.match_points * 100) / 100}% Match)</a>}
+                                title={<a href={item.school_url.startsWith('http') ? item.school_url : `https://${item.school_url}`} target="_blank" rel="noopener noreferrer">{index + 1}. {item.school_name} (<span className={`anti-gradient_${roundToNearest5(Math.round(item.match_points * 100) / 100)}`}>{Math.round(item.match_points * 100) / 100}%</span> Match)</a>}
                                 description={`Located in: ${item.city}, ${item.state}`}
                             />
                         </Skeleton>

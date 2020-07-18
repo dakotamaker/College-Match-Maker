@@ -5,6 +5,9 @@ data from the U.S. Department of education. Data populated in a DB by [this scri
 The initial build of this application is for a grad school class, so the logic is not fully fleshed out, and should
 not be taken as an absolute. The code isn't fully production-ready, but is a starting point.
 
+## Env variables
+- SCORECARD_API_KEY: The API key needed to query against the scorecard API
+
 ## Running Locally
 
 Run `npm dev`

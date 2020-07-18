@@ -6,7 +6,6 @@ import Routes from './Routes';
 import Home from './pages/home'
 import Survey from './pages/survey'
 import KnowledgeBase from './pages/knowledgeBase'
-import './Assets/css/App.css'
 
 class App extends React.Component {
   constructor(props) { 

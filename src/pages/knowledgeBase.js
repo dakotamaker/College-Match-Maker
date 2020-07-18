@@ -1,20 +1,25 @@
 import React from 'react';
-import { Result } from 'antd';
-import { Link } from 'react-router-dom';
+import Title from '../Components/pages/knowledgeBase/Title'
+import EmptyPage from '../Components/pages/knowledgeBase/emptyPage'
+import DataPage from '../Components/pages/knowledgeBase/dataPage'
 
 class KnowledgeBase extends React.Component {
+    constructor() {
+        super();
+        let currentCollegeId = window.location.href.toLowerCase().split('knowledgebase/')[1];
+        let content = currentCollegeId != null ? <DataPage collegeId={currentCollegeId}/> : <EmptyPage/>
+
+        this.state = {
+            content: content
+        }
+    }
+
     render() {
         return (
-            <span>
-                <h1 className="construction">
-                <Result
-                    status="403"
-                    title="Under Construction"
-                    subTitle="Sorry, this page isn't available just yet."
-                    extra={<Link to="/">Back Home</Link>}
-                />
-                </h1>
-            </span>
+            <>
+            <Title></Title>
+            {this.state.content}
+            </>
         );
     }
 }
