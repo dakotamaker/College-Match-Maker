@@ -23,7 +23,7 @@ const absoluteEqualityQueryKeys = [
 ]
 
 const absoluteComparisonQueryKeys = [
-    {storageKey: 'gender', queryKey: '{value}_percentage', queryAlias: 'gender'},
+    {storageKey: 'gender', queryKey: '{value}_percentage', greaterThan: true, queryAlias: 'gender'},
     {storageKey: 'act-comp', queryKey: 'act_50_percentile_cumulative', queryAlias: 'act_composite'},
     {storageKey: 'act-math', queryKey: 'act_50_percentile_math', queryAlias: 'act_math'},
     {storageKey: 'act-english', queryKey: 'act_50_percentile_english', queryAlias: 'act_english'},
@@ -154,7 +154,7 @@ const constructAbsoluteComparisonQueryStatements = function(absoluteComparisonVa
             let absoluteComparisonQueryKey = absoluteComparisonQueryKeys.find(x => x.storageKey === key)
             let keyWeight = determineWeight(key)
     
-            queryBuilder.conditions.push(`SUM(IF(${absoluteComparisonQueryKey.queryKey.replace('{value}', absoluteComparisonValues[key])} > ${typeof(absoluteComparisonValues[key]) === 'number' ? absoluteComparisonValues[key]: 0.3}, ${keyWeight}, 0)) as ${absoluteComparisonQueryKey.queryAlias}_match`)
+            queryBuilder.conditions.push(`SUM(IF(${absoluteComparisonQueryKey.queryKey.replace('{value}', absoluteComparisonValues[key])} ${absoluteComparisonValues[key].greaterThan ? '>=' : '<='} ${typeof(absoluteComparisonValues[key]) === 'number' ? absoluteComparisonValues[key]: 0.3}, ${keyWeight}, 0)) as ${absoluteComparisonQueryKey.queryAlias}_match`)
             queryBuilder.params.push(absoluteComparisonValues[key], keyWeight)
             queryBuilder.aliases.push(`${absoluteComparisonQueryKey.queryAlias}_match`)
             queryBuilder.totalPossiblePoints += Math.min(keyWeight, 1)
