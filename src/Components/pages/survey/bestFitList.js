@@ -9,9 +9,8 @@ import Collapsible from 'react-collapsible';
 import { getDisplayNameForMatchBullet } from './utils/bestFitValues'
 
 const constructMatchDetailLists = function(item) {
-    console.log(item)
-    let missingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] < 0.5)
-    let matchingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] > 0)
+    let missingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] < 0.5 && !key.endsWith('_popular_match'))
+    let matchingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] > 0 && !key.endsWith('_popular_match'))
 
     return (
         <>

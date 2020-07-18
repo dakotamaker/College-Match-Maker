@@ -176,7 +176,7 @@ const constructDiversityComparisonQueryStatements = function(diversityValues, qu
 }
 
 const constructMajorQueryStatements = function(majorValues, queryBuilder) {
-    if(majorValues.length) {
+    if(Object.keys(majorValues).length) {
         let flatSubjectMajorEquivalents = majorValues['fav-subjs'].map(x=> subjectToMajorMapping[x]).flat();
         let majorList = [...new Set(flatSubjectMajorEquivalents.concat(majorValues['int-major']))];
     

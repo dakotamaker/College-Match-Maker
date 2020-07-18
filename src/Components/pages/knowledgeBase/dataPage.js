@@ -35,7 +35,6 @@ class DataPage extends React.Component {
         let response = await fetch.getCollegeDataByID(this.state.id);
         let matchData = await fetch.query(matchQuery.query, matchQuery.params)
         let percentMatch = parseFloat(matchData[0].match_points).toFixed(2)
-        console.log(response)
         let data = response.results[0];
 
         this.setState(previousState => {
