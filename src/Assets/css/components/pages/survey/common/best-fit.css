@@ -9,3 +9,59 @@
     justify-content: center;
     font-size: 1.5em;
 }
+
+.collapsible {
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #777;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+}
+
+.collapsible-header {
+    text-align: left;
+    padding: 10px 24px;
+    background-color: #777;
+    color: white;
+}
+
+.match-details-list-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1% 10%;
+}
+
+.match-type-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.matchList {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.matchListItem {
+  padding-left: 1em;
+}
+
+.matchingListItem:before {
+    content: "+";
+    padding-right: 5px;
+}
+
+.missingListItem:before {
+    content: "-";
+    padding-right: 5px;
+}
+
+.green {
+    color: #099124
+}
+
+.red {
+    color: #a61b11
+}

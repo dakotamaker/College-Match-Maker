@@ -23,12 +23,12 @@ const absoluteEqualityQueryKeys = [
 ]
 
 const absoluteComparisonQueryKeys = [
-    {storageKey: 'gender', queryKey: '{value}_percentage', greaterThan: true, queryAlias: 'gender'},
+    {storageKey: 'gender', queryKey: '{value}_percentage', queryAlias: 'gender'},
     {storageKey: 'act-comp', queryKey: 'act_50_percentile_cumulative', queryAlias: 'act_composite'},
     {storageKey: 'act-math', queryKey: 'act_50_percentile_math', queryAlias: 'act_math'},
     {storageKey: 'act-english', queryKey: 'act_50_percentile_english', queryAlias: 'act_english'},
     {storageKey: 'act-writing', queryKey: 'act_50_percentile_writing', queryAlias: 'act_writing'},
-    {storageKey: 'sat-total', queryKey: 'overall_average_sat', queryAlias: 'act_composite'},
+    {storageKey: 'sat-total', queryKey: 'overall_average_sat', queryAlias: 'sat_composite'},
     {storageKey: 'sat-math', queryKey: 'sat_50_percentile_math', queryAlias: 'sat_math'},
     {storageKey: 'sat-reading', queryKey: 'sat_50_percentile_critical_reading', queryAlias: 'sat_reading'},
     {storageKey: 'sat-writing', queryKey: 'sat_50_percentile_writing', queryAlias: 'sat_writing'},
@@ -220,6 +220,7 @@ export function constructBestFitQuery(collegeId) {
                     state,
                     longitude,
                     latitude,
+                    ${queryBuilder.aliases.length ? queryBuilder.aliases.filter(x=> !x.startsWith('ethnic') && !x.startsWith('gender')).join(',') : '1'},
                     ROUND((${queryBuilder.aliases.length ? queryBuilder.aliases.join(' + ') : '1'}) / ${queryBuilder.totalPossiblePoints > 0 ? queryBuilder.totalPossiblePoints : 1}, 3) * 100 as match_points 
                 FROM (
                     SELECT
@@ -231,7 +232,7 @@ export function constructBestFitQuery(collegeId) {
                         state,
                         longitude,
                         latitude,
-                        ${queryBuilder.conditions.length ? queryBuilder.conditions.join(',\n') : '1 as foo'}
+                        ${queryBuilder.conditions.length ? queryBuilder.conditions.join(',\n') : '1'}
                     FROM college_scorecard_data 
                     ${collegeId ? 'WHERE college_id=' + collegeId : ''}
                     group by college_id) as T

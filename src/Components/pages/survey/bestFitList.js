@@ -5,6 +5,31 @@ import { constructBestFitQuery, roundToNearest5 } from '../../percentMatch';
 import "../../../Assets/css/components/pages/survey/common/best-fit.css"
 import "../../../Assets/css/components/percentMatch.css"
 import { Link } from 'react-router-dom';
+import Collapsible from 'react-collapsible';
+import { getDisplayNameForMatchBullet } from './utils/bestFitValues'
+
+const constructMatchDetailLists = function(item) {
+    console.log(item)
+    let missingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] < 0.5)
+    let matchingItems = Object.keys(item).filter(key => key.endsWith('_match') && item[key] > 0)
+
+    return (
+        <>
+            <div>
+                <div className="match-type-title green">Matching Criteria:</div>
+                <ul className="matchList">
+                    {matchingItems.length ? matchingItems.map(x=> <li className="matchListItem matchingListItem">{getDisplayNameForMatchBullet(x)}</li>) : 'None to display'}
+                </ul>
+            </div>
+            <div>
+                <div className="match-type-title red">Missing Critera:</div>
+                <ul className="matchList">
+                    {missingItems.length ? missingItems.map(x=> <li className="matchListItem missingListItem">{getDisplayNameForMatchBullet(x)}</li>) : 'None to display'}
+                </ul>
+            </div>
+        </>
+    )
+}
 
 class BestFitList extends React.Component {
     constructor(props) {
@@ -19,7 +44,7 @@ class BestFitList extends React.Component {
     }
 
     async componentDidMount() {
-        let queryDetails = constructBestFitQuery()        
+        let queryDetails = constructBestFitQuery()
         let bestFits = await fetch.query(queryDetails.query, queryDetails.params);
 
         this.setState({
@@ -71,6 +96,7 @@ class BestFitList extends React.Component {
                     loadMore={loadMore}
                     dataSource={this.state.shownList}
                     renderItem={(item, index) => (
+                    <>
                     <List.Item
                         actions={[<Link to={`/knowledgeBase/${item.college_id}`}> See knowledgebase </Link>]}
                     >
@@ -81,6 +107,20 @@ class BestFitList extends React.Component {
                             />
                         </Skeleton>
                     </List.Item>
+                    <Collapsible 
+                        trigger="View Match Details"
+                        triggerWhenOpen="Hide Match Details"
+                        triggerTagName='div'
+                        classParentString="collapsible"
+                        triggerClassName="collapsible-header"
+                        triggerOpenedClassName="collapsible-header"
+                        transitionTime={200}
+                    >
+                        <div className="match-details-list-container">
+                            {constructMatchDetailLists(item)}
+                        </div>
+                    </Collapsible>
+                    </>
                     )}
                 />
             </div>
