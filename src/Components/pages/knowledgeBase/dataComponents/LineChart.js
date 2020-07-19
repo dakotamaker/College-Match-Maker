@@ -13,7 +13,6 @@ const populateLines = function(data, xAxisKey) {
 }
 
 const percent = (decimal, fixed = 2) => `${(decimal * 1).toFixed(fixed)}%`
-
 const dollars = (value) =>  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD',}).format(value);
 
 export default class KnowledgeBaseLineChart extends React.Component {

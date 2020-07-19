@@ -3,6 +3,10 @@ import { PieChart, Pie, Sector, Legend, Cell, ResponsiveContainer } from 'rechar
 import { COLORS } from '../utils'
 import '../../../../Assets/css/components/pages/knowledgeBase/pieChart.css'
 
+/* 
+  RenderActiveShape function and basis of this class were taken from or inspired by Rechart's example docs.
+  The particular example being located here: http://recharts.org/en-US/examples/CustomActiveShapePieChart
+*/
 const renderActiveShape = (props) => {
     const RADIAN = Math.PI / 180;
     const {
