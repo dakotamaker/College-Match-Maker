@@ -220,6 +220,7 @@ export function constructBestFitQuery(collegeId) {
                     state,
                     longitude,
                     latitude,
+                    admission_rate,
                     ${queryBuilder.aliases.length ? queryBuilder.aliases.filter(x=> !x.startsWith('ethnic') && !x.startsWith('gender')).join(',') : '1'},
                     ROUND((${queryBuilder.aliases.length ? queryBuilder.aliases.join(' + ') : '1'}) / ${queryBuilder.totalPossiblePoints > 0 ? queryBuilder.totalPossiblePoints : 1}, 3) * 100 as match_points 
                 FROM (
@@ -232,11 +233,12 @@ export function constructBestFitQuery(collegeId) {
                         state,
                         longitude,
                         latitude,
+                        admission_rate,
                         ${queryBuilder.conditions.length ? queryBuilder.conditions.join(',\n') : '1'}
                     FROM college_scorecard_data 
                     ${collegeId ? 'WHERE college_id=' + collegeId : ''}
                     group by college_id) as T
-                ORDER BY match_points DESC, school_name ASC
+                ORDER BY match_points DESC, admission_rate ASC, school_name ASC
                 LIMIT ${collegeId ? '1' : '50'};
                 `
 
